@@ -3,15 +3,28 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "env-cmd -f ./env/.env nodemon ./bin/www",
+    "dev": "env-cmd -f ./env/.env.dev nodemon ./bin/www",
+    "prod": "env-cmd -f ./env/.env.prod nodemon ./bin/www"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
+    "ejs": "^3.1.10",
     "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.1",
     "morgan": "~1.9.1",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "validator": "^13.15.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
   }
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Nouvelle Réservation</title>
+</head>
+<body>
+  <%- include('../component/header') %>
+
+  <h2>Ajouter une Réservation</h2>
+
+  <% if (errorMessage) { %>
+    <p style="color:red;"><%= errorMessage %></p>
+  <% } %>
+
+  <form action="/reservations/new" method="POST">
+    <label>Numéro de Catway :</label>
+    <input type="text" name="catwayNumber" required><br>
+
+    <label>Nom du Client :</label>
+    <input type="text" name="clientName" required><br>
+
+    <label>Nom du Bateau :</label>
+    <input type="text" name="boatName" required><br>
+
+    <label>Date de début :</label>
+    <input type="date" name="startDate" required><br>
+
+    <label>Date de fin :</label>
+    <input type="date" name="endDate" required><br>
+
+    <button type="submit">Valider</button>
+  </form>
+</body>
+</html>

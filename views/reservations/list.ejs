@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Réservations</title>
+</head>
+<body>
+  <%- include('../component/header') %>
+
+  <h2>Liste des Réservations</h2>
+  <a href="/reservations/new">Ajouter une réservation</a>
+
+  <ul>
+    <% reservations.forEach(res => { %>
+        <li>
+            <strong>Catway :</strong> <%= res.catwayNumber %> |
+            <strong>Client :</strong> <%= res.clientName %> |
+            <strong>Bateau :</strong> <%= res.boatName %> |
+            <strong>Du :</strong> <%= res.startDate.toLocaleDateString() %> au <%= res.endDate.toLocaleDateString() %>
+            
+            <a href="/reservations/edit/<%= res._id %>">Modifier</a>
+          
+            <form action="/reservations/delete/<%= res._id %>" method="POST" style="display:inline;">
+              <button type="submit">Supprimer</button>
+            </form>
+          </li>
+          
+    <% }) %>
+  </ul>
+</body>
+</html>

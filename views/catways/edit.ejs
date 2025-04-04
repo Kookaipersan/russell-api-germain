@@ -1,0 +1,11 @@
+<h2>Modifier le statut du Catway</h2>
+<form action="/catways/<%= catway._id %>?_method=PUT" method="POST">
+  <p>Numéro : <%= catway.number %></p>
+  <p>Type : <%= catway.type %></p>
+  <label>Statut :</label>
+  <select name="status">
+    <option value="Disponible" <%= catway.status === 'Disponible' ? 'selected' : '' %>>Disponible</option>
+    <option value="Indisponible" <%= catway.status === 'Indisponible' ? 'selected' : '' %>>Indisponible</option>
+  </select><br>
+  <button type="submit">Modifier</button>
+</form>

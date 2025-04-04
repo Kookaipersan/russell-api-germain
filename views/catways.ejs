@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Liste des Catways</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('component/header') %>
+
+  <h2>Liste des Catways</h2>
+  <a href="/catways/new">Ajouter un nouveau catway</a>
+  <ul>
+    <% catways.forEach(catway => { %>
+      <li>
+        Catway <%= catway.catwayNumber %> - Type : <%= catway.catwayType %> - État : <%= catway.catwayState %>
+        <a href="/catways/<%= catway._id %>/edit">Modifier</a>
+        <form action="/catways/<%= catway._id %>/delete" method="POST" style="display:inline;">
+          <button type="submit">Supprimer</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<h1>Créer un compte</h1>
+
+<% if (typeof error !== 'undefined') { %>
+  <p style="color: red;"><%= error %></p>
+<% } %>
+
+<form action="/register" method="POST">
+  <label>Nom d'utilisateur:</label>
+  <input type="text" name="username" required />
+  <label>Email:</label>
+  <input type="email" name="email" required />
+  <label>Mot de passe:</label>
+  <input type="password" name="password" minlength="6" required />
+  <button type="submit">S'inscrire</button>
+</form>
